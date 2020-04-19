@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Exchange</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body onload="getCurrencyData()">
+    <div class="login-page">
+        <div id="currency">
+            <h2>Hello! The follwing tickers show the current exchange rates of majpr currencies</h2>
+            <h3 id="xcval1"> 1 USD = fetching... INR</h3> 
+            <h3 id="xcval2"> 1 USD = fetching... GBP</h3> 
+            <h3 id="xcval3"> 1 USD = fetching... JPY</h3> 
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Name" id="name" style="display: none;"/>
+            <input type="text" placeholder="Username" id="uname"/>
+            <input type="password" placeholder="Password" id="pass"/>
+            <input type="password" placeholder="Confirm Password" id="conf_pass" style="display: none;"/>
+            <button id="submit-button" onclick="submit()">login</button>
+            <p class="message" id="bottom-text">Not registered? <a onclick="toggle()" href="#">Create an account</a></p>
+        </div>
+    </div>
+
+
+</body>
+</html>
