@@ -26,10 +26,10 @@ function submit() {
             password: document.getElementById("pass").value,
             confpassword: document.getElementById("conf_pass").value
         }
-        if(postSignUpData(data) === "Success") {
-            alert("User created successfully");
+        if (!(data.password === data.confpassword)) {
+            alert("Passwords do not match");
         } else {
-            alert("Error in creating user");
+            postSignUpData(data)
         }
     } else { //if user is to be logged in
         var data = {
@@ -37,14 +37,7 @@ function submit() {
             password: document.getElementById("pass").value,
         }
         console.log(data);
-        if(postSignInData(data) == "Authenticated") {
-            alert("Sign Up Successful!");
-            setTimeout(() => {
-                window.location.href = `${window.location.href}/loggedIn`;
-            }, 5000);
-        } else {
-            alert("Wrong email or password!");
-        }
+        postSignInData(data);
     }
 }
 
@@ -59,11 +52,12 @@ function postSignInData(data) {
     }).then(response => {
         if(response.status !== 200) {
             console.log("Error: Status code: " + response.status);
+            status = "Failure"
             return;
         }
         response.json().then( result => {
             console.log(result);
-            return result.status;
+            react(result.status); // Authenticated, Failure
         })
     }).catch( err => {
         console.log('Fetch Error :-S', err);
@@ -84,12 +78,29 @@ function postSignUpData(data) {
             return;
         }
         response.json().then( result => {
-            console.log(result);
-            return result.status;
+            console.log(result.status); // exists, success, failure
+            react(result.status);
         })
     }).catch( err => {
         console.log('Fetch Error :-S', err);
     });
+}
+
+function react(response) {
+    if (response == "User Exists") {
+        alert("Username exists");
+    } else if(response == "Success") {
+        alert("User Successfully created");
+        window.location.reload();
+    } else if( response == "Authenticated") {
+        alert("User successfully logged in");
+        // TODO change window location to logged in page
+    } else if(response == "Invalid") {
+        alert("Entered wrong username or password");
+    } else {
+        alert("There was an internal error in creating the user");
+        window.location.reload();
+    }
 }
 
 function getCurrencyData() {
