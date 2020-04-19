@@ -5,8 +5,8 @@
 Simple frontend fetches data from currency exchange API. Login uses google cloud hosted compute engine (Server) and redis-server for data storage and basic login auth.
 
 ## To Run
-Visit 34.71.143.101:3000 (Possible 404 if server is shutdown)
-  OR
+Visit 34.71.143.101:3000 (Possible 404 if server is shutdown) 
+  ### OR
 clone folder, run `npm install && node server.js` and visit localhost:3000 (Database may not work if server is shutdown)
-  OR
+  ### OR
 visit http://purple-truck.surge.sh/ for UI only (No running server therefore no functionality)
