@@ -1,0 +1,26 @@
+{
+  "name": "simple-currency-login",
+  "version": "1.0.0",
+  "description": "Simple Application to demonstrate Web Development Provess",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MadhavShroff/simple-currency-login.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MadhavShroff/simple-currency-login/issues"
+  },
+  "homepage": "https://github.com/MadhavShroff/simple-currency-login#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "password-hash-and-salt": "^0.1.4",
+    "redis": "^3.0.2"
+  }
+}
